@@ -15,6 +15,8 @@ private:
 	void onBanPromptButtonPressed(cocos2d::CCObject*);
 	void onSongAddButtonPressed(cocos2d::CCObject*);
 
+	void onSiteButtonPressed(cocos2d::CCObject*);
+
 public:
 	void setup() override;
 

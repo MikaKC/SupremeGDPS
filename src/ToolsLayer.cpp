@@ -18,6 +18,15 @@ void ToolsLayer::setup()
 	songAddButton->setPosition(ccp(-70.f, songAddButton->getPositionY() - 20));
 	banPromptButton->setPosition(ccp(-70.f, banPromptButton->getPositionY() - 65));
 
+	CCMenuItemSpriteExtra* siteHrl = CCMenuItemSpriteExtra::create(CCSprite::createWithSpriteFrameName("GJ_profileButton_001.png"), this, (SEL_MenuHandler)(&ToolsLayer::onSiteButtonPressed));
+	siteHrl->setPosition(ccp(+70.f, -siteHrl->getContentSize().height + 25.f));
+
+	CCLabelBMFont* t = CCLabelBMFont::create("Official Site", "bigFont.fnt");
+	t->setScale(0.5f);
+	t->setPosition(ccp(+70.f, 5.f));
+
+	m_pButtonMenu->addChild(t);
+	m_pButtonMenu->addChild(siteHrl, 5);
 	m_pButtonMenu->addChild(cronButton, 5);
 	m_pButtonMenu->addChild(songAddButton, 5);
 	m_pButtonMenu->addChild(banPromptButton, 5);
@@ -46,6 +55,11 @@ void ToolsLayer::onBanPromptButtonPressed(cocos2d::CCObject*)
 void ToolsLayer::onSongAddButtonPressed(cocos2d::CCObject*)
 {
 	SongAddLayer::create()->show();
+}
+
+void ToolsLayer::onSiteButtonPressed(cocos2d::CCObject*)
+{
+	CCApplication::sharedApplication()->openURL("https://ps.fhgdps.com/supremegdps1/tools/");
 }
 
 ToolsLayer* ToolsLayer::create()
